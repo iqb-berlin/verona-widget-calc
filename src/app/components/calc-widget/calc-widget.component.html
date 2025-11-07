@@ -1,0 +1,47 @@
+<div class="calc-widget">
+    <div class="display">
+        {{displayValue()}}
+    </div>
+    <div class="button-wrapper">
+        <div class="row">
+            <calc-button [label]="'AC'" [type]="'DELETE'" (addValue)="deleteAll()"></calc-button>
+            <calc-button [label]="'C'" [type]="'DELETE'" (addValue)="deleteValue()"></calc-button>
+        </div>
+        <div class="row">
+            <calc-button [label]="'x²'" [value]="'^2'" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+            <calc-button [label]="'%'" [value]="'%'" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+            <calc-button [label]="'('" [value]="'('" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+            <calc-button [label]="')'" [value]="')'" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+        </div>
+        <div class="row">
+            <div class="num-block">
+                <div class="row">
+                    <calc-button [label]="'7'" [value]="'7'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="'8'" [value]="'8'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="'9'" [value]="'9'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                </div>
+                <div class="row">
+                    <calc-button [label]="'4'" [value]="'4'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="'5'" [value]="'5'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="'6'" [value]="'6'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                </div>
+                <div class="row">
+                    <calc-button [label]="'1'" [value]="'1'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="'2'" [value]="'2'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="'3'" [value]="'3'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                </div>
+                <div class="row">
+                    <calc-button [label]="'0'" [value]="'0'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="','" [value]="'.'" [type]="'NUMBER'" (addValue)="addValue($event)"></calc-button>
+                    <calc-button [label]="'='" [type]="'ACTION'" (addValue)="submit()"></calc-button>
+                </div>
+            </div>
+            <div class="operator-block">
+                <calc-button [label]="'+'" [value]="'+'" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+                <calc-button [label]="'-'" [value]="'-'" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+                <calc-button [label]="'*'" [value]="'*'" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+                <calc-button [label]="'/'" [value]="'/'" [type]="'DEFAULT'" (addValue)="addValue($event)"></calc-button>
+            </div>
+        </div>
+    </div>
+</div>

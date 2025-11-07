@@ -1,0 +1,28 @@
+button {
+  width: 60px;
+  height: 36px;
+  font-size: 1.2em;
+  padding: 4px;
+  margin: 4px;
+  border: none;
+
+  &.default {
+    color: black;
+    background-color: lightgrey;
+  }
+
+  &.number {
+    color: black;
+    background-color: white;
+  }
+
+  &.action {
+    color: black;
+    background-color: limegreen;
+  }
+
+  &.delete {
+    color: white;
+    background-color: red;
+  }
+}

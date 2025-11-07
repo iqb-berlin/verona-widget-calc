@@ -1,0 +1,23 @@
+.num-block {
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.operator-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.display {
+  width: calc(4 * 60px + 3 * 4px);
+  display: block;
+  font-size: 2em;
+  text-align: right;
+  padding: 8px;
+}
