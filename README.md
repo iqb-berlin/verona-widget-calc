@@ -28,12 +28,12 @@ This way, the Angular application is built into the folder `dist` .
 ```
 npm run postbuild
 ```
-Packs the application into the file `dist/verona-player-widget/browser/index_packed.html`. This way, one can try out the player via GitHub pages. The helper menu will show up when the player is started without host.
+Packs the application into the file `dist/verona-widget-calc/browser/index_packed.html`. This way, one can try out the player via GitHub pages. The helper menu will show up when the player is started without host.
 
 
 ### Release
 
-Please copy the `dist/verona-player-widget/browser/index_packed.html` file locally, rename it to `iqb-player-widget-<version>.html`
+Please copy the `dist/verona-widget-calc/browser/index_packed.html` file locally, rename it to `iqb-widget-calc-<version>.html`
 and load it as artifact into the release.
 
 For more information about the Verona Widgets, see the [documentation](https://verona-interfaces.github.io/widget-docs/).
