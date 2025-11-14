@@ -3,7 +3,7 @@
 
 # IQB Widget Calc
 
-Calculator Widget implementing Verona Widget Specification
+Simple Calculator Widget implementing Verona Widget Specification
 
 
 ## Development server

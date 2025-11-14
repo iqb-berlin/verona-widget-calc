@@ -2,7 +2,7 @@ import { Component, input, output, signal } from "@angular/core";
 import * as math from 'mathjs';
 
 import { CalcButtonComponent } from "../calc-button/calc-button.component";
-import {Button} from "../../models/widget-definition";
+import { Button } from "../../models/widget-definition";
 
 @Component({
   selector: 'calc-widget',

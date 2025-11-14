@@ -16,7 +16,7 @@ import {CalcWidgetComponent} from "./components/calc-widget/calc-widget.componen
 })
 
 export class App implements OnInit {
-  protected readonly title = signal('verona-widget-calc');
+  protected readonly title = signal('Widget Calculator');
   isStandalone = false;
 
   veronaPostService = inject(VeronaPostService);
