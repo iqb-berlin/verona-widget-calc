@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 
 import {
-  ModuleDependency,
+  ModuleDependency, SharedParameter,
   VariableInfo,
   VeronaMetaData,
-  VoeDefinitionChangedNotification,
   VoeMessage
 } from "../verona.interfaces";
 
@@ -26,21 +25,20 @@ export class VeronaPostService {
 
   sendVoeDefinitionChangedNotification(values: {
     unitDefinition?: string,
-    unitDefinitionType?: string,
     variables?: VariableInfo[],
     dependeciesToPlay?: ModuleDependency[],
     dependeciesToEdit?: ModuleDependency[],
-    sharedParameters?: Record<string, string>,
-  }): VoeDefinitionChangedNotification {
-    return {
+    sharedParameters?: SharedParameter[]
+  }): void {
+    this.sendMessage({
       type: 'voeDefinitionChangedNotification',
       sessionId: this.sessionID as string,
       timeStamp: Date.now().toString(),
       ...(values)
-    };
+    });
   }
 
-  sendVoeReadyNotification(playerMetadata: VeronaMetaData): void {
+  sendReadyNotification(playerMetadata: VeronaMetaData): void {
     this.sendMessage({
       type: 'voeReadyNotification',
       metadata: playerMetadata
