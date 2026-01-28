@@ -4,7 +4,8 @@ import { VeronaPostService } from '../../verona/src/lib/widget/verona-post.servi
 import { VeronaSubscriptionService } from '../../verona/src/lib/widget/verona-subscription.service';
 
 import { MetadataService } from './services/metadata.service';
-import {CalcWidgetComponent} from "./components/calc-widget/calc-widget.component";
+import { WidgetService } from "./services/widget.service";
+import { CalcWidgetComponent } from "./components/calc-widget/calc-widget.component";
 
 @Component({
   selector: 'app-root',
@@ -20,14 +21,22 @@ export class App implements OnInit {
   isStandalone = false;
 
   veronaPostService = inject(VeronaPostService);
+  widgetService = inject(WidgetService);
   veronaSubscriptionService = inject(VeronaSubscriptionService);
   metaDataService = inject(MetadataService);
 
   ngOnInit() {
     this.veronaSubscriptionService.vowStartCommand
       .subscribe(vowStartCommand => {
-        console.log('received vowStartCommand', vowStartCommand);
-        this.veronaPostService.sessionID = vowStartCommand.sessionId;
+        if (vowStartCommand) {
+          console.log('received vowStartCommand', vowStartCommand);
+          this.veronaPostService.sessionID = vowStartCommand.sessionId;
+          this.widgetService.setNewData({
+            state: vowStartCommand.state || '',
+            parameters: vowStartCommand.parameters || [],
+            sharedParameters: vowStartCommand.sharedParameters || []
+          });
+        }
       });
     this.isStandalone = window === window.parent;
     console.log('sending VowReadyNotification', this.metaDataService.playerMetadata);
@@ -39,5 +48,10 @@ export class App implements OnInit {
     this.veronaPostService.sendVowStateChangedNotification({
       state: value,
     })
+  }
+
+  emitEnd() {
+    console.log('sending VowReturnRequested');
+    this.veronaPostService.sendVowReturnRequested();
   }
 }
